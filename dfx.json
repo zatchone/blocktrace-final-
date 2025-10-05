@@ -13,7 +13,8 @@
     },
     "blocktrace_frontend": {
       "type": "assets",
-      "source": ["src/blocktrace-frontend-main/out/"]
+      "source": ["src/blocktrace-frontend-main/out/"],
+      "build": "cd src/blocktrace-frontend-main && npm install && npm run build && npm run export"
     }
   },
   "networks": {
