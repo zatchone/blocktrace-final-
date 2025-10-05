@@ -5,16 +5,22 @@
   },
   "name": "blocktrace-dapp-main",
   "scripts": {
+    "install": "npm install --workspaces",
+    "dev": "cd src/blocktrace-frontend-main && npm run dev",
     "build": "npm run build --workspaces --if-present",
     "prebuild": "npm run prebuild --workspaces --if-present",
     "pretest": "npm run prebuild --workspaces --if-present",
     "start": "npm start --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
+    "test": "npm test --workspaces --if-present",
+    "setup": "npm install && dfx start --background --clean && dfx deploy",
+    "deploy": "dfx deploy",
+    "local-start": "dfx start --background --clean"
   },
   "type": "module",
   "workspaces": [
     "src/blocktrace-frontend-main"
   ],
+  "postinstall": "npm install --workspace=src/blocktrace-frontend-main",
   "dependencies": {
     "@dfinity/agent": "^2.4.1",
     "@dfinity/candid": "^2.4.1",
